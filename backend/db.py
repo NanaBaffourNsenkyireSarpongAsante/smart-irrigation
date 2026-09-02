@@ -2,12 +2,13 @@
 # DATABASE MODULE - connection and schema
 # ============================================================
 import sqlite3
+from pathlib import Path
 
-DB_PATH = 'irrigation.db'
+DB_PATH = Path(__file__).with_name('irrigation.db')
 
 
 def get_connection():
-    return sqlite3.connect(DB_PATH)
+    return sqlite3.connect(str(DB_PATH))
 
 
 def init_db():
